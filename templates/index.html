@@ -1,0 +1,24 @@
+<!-- templates/index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Genre Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Music Genre Classifier</h1>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="submit" value="Upload">
+        </form>
+        {% if prediction %}
+            <div class="result">{{ prediction }}</div>
+        {% elif error %}
+            <div class="result">{{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
